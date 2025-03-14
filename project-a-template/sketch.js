@@ -21,6 +21,7 @@ let radS;
 let diaS;
 
 function setup() {
+    //in VS code
     let canvas = createCanvas(800, 500);
     canvas.parent("p5-canvas-container")
 
