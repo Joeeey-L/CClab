@@ -248,7 +248,7 @@ function drawBranches(x, number, length, colorName) {
 function drawPlanets(colorName) {
     g.push();
     g.translate(0, 0);
-    if (frameCount % 30 == 0 && frameCount < 8100) {
+    if (frameCount % 30 == 0 && frameCount < 6300) {
         let xx = random(width);
         let yy = random(height);
         let rad = random(1, 3);
