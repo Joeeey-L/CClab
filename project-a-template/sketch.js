@@ -21,6 +21,8 @@ let radS;
 let diaS;
 
 function setup() {
+    //createCanvas(800, 500);
+
     //in VS code
     let canvas = createCanvas(800, 500);
     canvas.parent("p5-canvas-container")
@@ -93,6 +95,7 @@ function resetSignal() {
 }
 
 function drawSignals(x, number, length) {
+    push();
     if (disperse) {
         if (phaseS === 2) {
             if (changeColor) {
@@ -245,7 +248,7 @@ function drawBranches(x, number, length, colorName) {
 function drawPlanets(colorName) {
     g.push();
     g.translate(0, 0);
-    if (frameCount % 15 == 0) {
+    if (frameCount % 30 == 0 && frameCount < 8100) {
         let xx = random(width);
         let yy = random(height);
         let rad = random(1, 3);
@@ -254,6 +257,6 @@ function drawPlanets(colorName) {
         g.circle(xx, yy, rad * 2);
         g.fill(colorName);
         g.circle(xx, yy, rad);
-        g.pop();
     }
+    g.pop();
 }
