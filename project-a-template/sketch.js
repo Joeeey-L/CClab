@@ -20,6 +20,15 @@ let rS, gS, bS;
 let radS;
 let diaS;
 
+let freq;
+let amp;
+let cosValue, sinValue;
+let xx1, xx2, xx, yy;
+let angle;
+let rad = 0;
+let disperse = false;
+let g;
+
 function setup() {
     //createCanvas(800, 500);
 
@@ -85,13 +94,15 @@ function mousePressed() {
 }
 
 function resetSignal() {
-    xS = mouseX;
-    yS = mouseY;
-    alphaS = 255;
-    phaseS = 1;
+    if (mouseX <= width && mouseX >= 0 && mouseY <= height && mouseY >= 0) {
+        xS = mouseX;
+        yS = mouseY;
+        alphaS = 255;
+        phaseS = 1;
 
-    vxS = (width / 2 - xS) * 0.02;
-    vyS = (height - yS) * 0.02;
+        vxS = (width / 2 - xS) * 0.02;
+        vyS = (height - yS) * 0.02;
+    }
 }
 
 function drawSignals(x, number, length) {
@@ -164,16 +175,6 @@ function drawUniverse() {
     }
     pop();
 }
-
-let freq;
-let amp;
-let cosValue, sinValue;
-let xx1, xx2, xx, yy;
-let angle;
-let rad = 0;
-let disperse = false;
-let g;
-let r;
 
 function drawTree() {
     freq = frameCount * 0.05;
@@ -248,7 +249,7 @@ function drawBranches(x, number, length, colorName) {
 function drawPlanets(colorName) {
     g.push();
     g.translate(0, 0);
-    if (frameCount % 30 == 0 && frameCount < 6300) {
+    if (frameCount % 30 == 0 && frameCount < 4500) {
         let xx = random(width);
         let yy = random(height);
         let rad = random(1, 3);
@@ -259,4 +260,46 @@ function drawPlanets(colorName) {
         g.circle(xx, yy, rad);
     }
     g.pop();
+}
+
+//if space is pressed, everything restart at the begining;
+function keyPressed() {
+    if (key === " ") {
+        resetSketch();
+    }
+}
+
+function resetSketch() {
+    //reset all the variables
+    x = width / 2;
+    y = height / 2;
+    px = random(width);
+    py = random(height);
+    alphaValue = 255;
+    transitionFrame = 0;
+    disperse = false;
+    rad = 0;
+
+    xS = mouseX;
+    yS = mouseY;
+    alphaS = 255;
+    phaseS = 1;
+    vxS = (width / 2 - xS) * 0.02;
+    vyS = (height - yS) * 0.02;
+    changeColor = false;
+    rS = random(255);
+    gS = random(255);
+    bS = random(255);
+    diaS = random(4, 6);
+
+    g.clear();
+    g.background(0);
+
+    // reset frameCount
+    yy = height;
+    xx1 = 0;
+    xx2 = 0;
+    frameCount = 0;
+
+    drawTree();
 }
