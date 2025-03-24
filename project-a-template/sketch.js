@@ -1,10 +1,3 @@
-/*
-Template for IMA's Creative Coding Lab 
-
-Project A: Generative Creatures
-CCLaboratories Biodiversity Atlas 
-*/
-
 let x, y;
 let px, py;
 let step = 2;
@@ -41,6 +34,7 @@ function setup() {
     px = random(width);
     py = random(height);
 
+    //thanks Moon for teaching me how to use createGraphics() function
     g = createGraphics(800, 500);
     g.background(0);
 
@@ -134,6 +128,7 @@ function drawSignals(x, number, length) {
 }
 
 function drawUniverse() {
+    //thanks Moon for the idea of introducing the viariable targetFrame
     let targetFrame = 3000;
     let scaleFactor = map(transitionFrame, 0, targetFrame, 1, 0.3);
     let alphaFactor = map(
