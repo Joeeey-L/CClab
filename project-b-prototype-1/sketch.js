@@ -139,7 +139,7 @@ class Popup {
       x < width / 2 - 150 ||
       x > width / 2 + 150 ||
       y < height / 2 - 180 ||
-      y > height / 2 + 180 / 2
+      y > height / 2 + 180
     ) {
       furnitureManager.popup = null;
     }
