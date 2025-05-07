@@ -126,7 +126,7 @@ class Popup {
     translate(width / 2, height / 2);
     noStroke();
     rectMode(CENTER);
-    fill(255, 100);
+    fill(10, 10, 25, 100);
     rect(0, 0, width, height);
 
     imageMode(CENTER);
