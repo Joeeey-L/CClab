@@ -96,7 +96,9 @@ function draw() {
 }
 
 function mousePressed() {
-  sound_mouse.play();
+  if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+    sound_mouse.play();
+  }
   if (furnitureManager.popup) {
     furnitureManager.popup.checkClick(mouseX, mouseY);
   } else {
