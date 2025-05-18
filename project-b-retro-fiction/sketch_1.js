@@ -165,10 +165,10 @@ class Popup {
 
   checkClick(x, y) {
     if (
-      x < width / 2 - 150 ||
-      x > width / 2 + 150 ||
-      y < height / 2 - 180 ||
-      y > height / 2 + 180
+      x < width / 2 - 225 ||
+      x > width / 2 + 225 ||
+      y < height / 2 - 270 ||
+      y > height / 2 + 270
     ) {
       furnitureManager.popup = null;
     }
